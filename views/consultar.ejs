@@ -1,0 +1,68 @@
+
+<html>
+<head>
+  <title>Desafio Horizon</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head> 
+<body>
+<div class="container justify-content-center">
+  
+    <header>
+      <div class="row justify-content-center">
+        <br>
+        <br>
+        <h1> Consulta usuários</h1>
+      </div>
+    </header>
+    <div class="row justify-content-center">
+      <div class="col-6 justify-content-center">
+        
+          <div class="form-group" >
+            <div class="row">
+              <div class="col-sm">  
+                          
+                  <table class="table" id="myTable">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nome</th>
+                          <th scope="col">CPF</th>
+                          <th scope="col">Telefone</th>
+                          <th scope="col">Sexo</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Data de Nascimento</th>
+                          
+                        </tr>
+                       
+                        <% cad_lista.forEach(function(cad_lista){ %>
+                         <form name="alterar" method="get" data-toggle="validator" action="/alterar"> 
+                          <tr>
+                            <td><%= cad_lista.nome%></td>
+                            <td><%= cad_lista.cpf%></td>
+                            <td><%= cad_lista.telefone %></td>
+                            <td><%= cad_lista.sexo %></td>
+                            <td><%= cad_lista.email %></td>
+                            <td><%= cad_lista.data_de_nascimento%></td>
+                            
+                            <td><input  class="btn btn-outline-primary btn-lg active" name="alterar" value="Alterar" role="button" aria-pressed="true"  type="submit" ></td>
+                            <input type="hidden"  name="id" value="<%= cad_lista.cpf%>" >
+                          </tr>
+                        </form>  
+                        <% })%>
+                      </thead>
+            </div> 
+          </div> 
+                  </table>
+              </div>              
+       
+      </div>
+  </div>       
+    
+</html>

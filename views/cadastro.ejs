@@ -1,0 +1,128 @@
+<html>
+<head>
+  <title>Desafio Horizon</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>	
+<body>
+	<div class="container justify-content-center">
+  
+    <header>
+      <div class="row justify-content-center">
+        <br>
+        <br>
+        <h1> Cadastro do usuário</h1>
+      </div>
+    </header>
+    <div class="row justify-content-center">
+      <div class="col-6 justify-content-center">
+      <% if(validacao.length > 0){ %>
+          <div class="alert alert-danger">
+           <strong> Atenção!</strong>
+           <ul>
+              <%for(var i = 0; i < validacao.length; i++){ %>
+                <li><%=validacao[i].msg%></li>
+              <%} %>  
+            </ul>
+          </div>  
+      <% } %> 
+        <form name="cadastro"  data-toggle="validator" action="/cadastrar" method="post">
+          <div class="form-group" >
+            <div class="row">
+              <div class="col-sm">
+                
+                  Nome :
+               
+                <input type="text" value="<%=dadosForm.nome%>" class="form-control" name="nome" placeholder="NOME">
+                          CPF :
+                        
+                <input type="text" class="form-control" value="<%=dadosForm.cpf%>" name="cpf" placeholder="CPF">
+                        
+                          Email:
+                       
+                <input type="text" value="<%=dadosForm.email%>" class="form-control" name="email" placeholder="EMAIL">   
+                        
+                           Telefone:
+                        
+                <input type="text" value="<%=dadosForm.telefone%>" class="form-control" name="telefone" placeholder="TEL">         
+                
+                          Sexo
+                  
+                      
+                      
+                      <div class="col-sm form-inline">
+                      <input class="form-check-input" type="radio" name="sexo" id="masc" value="masculino">
+                      
+                      <label class="form-check-label">
+                        Masculino <br>  
+                      </label>
+                      </div>
+                      <div class="col-sm form-inline">
+                      <input class="form-check-input" type="radio" name="sexo" id="fem" value="feminino">
+                      <label class="form-check-label">
+                        Feminino
+                      </label>
+                      </div>
+                
+             
+
+                    Data de Nascimento:
+                    <div class='input-group date' id='datetimepicker1'>
+                        <script type="text/javascript">
+                        $(function () {
+                          $('#datetimepicker1').datetimepicker();
+                              dateFormat: 'dd/mm/yy',
+                              dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+                              dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+                              dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+                              monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                              monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+                        });
+                      </script>
+                        <input type='date' value="<%=dadosForm.dt%>" class="form-control" name="dt" placeholder="Data" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    
+
+                    </div>
+                </div>
+
+                  
+
+                </div>
+             </div> 
+        </div> 
+  
+              
+  
+              <div class="w-100"></div>
+            
+              <div class="row justify-content-center">
+                  <input  class="btn btn-outline-primary btn-lg active justify-content-center" role="button" aria-pressed="true"  type="submit" ></a>
+                </form>
+              </div>
+              
+              <div class="row justify-content-center">
+                  <form name="consulta" data-toggle="validator" action="/consultar" method="get">
+                    <input class="btn btn-outline-primary btn-lg active justify-content-center" name="consulta" value="consultar" role="button" aria-pressed="true"  type="submit" ></a>
+                  </form>
+              </div>   
+         
+          </div>
+        </form>
+        
+    
+         
+      </div>
+    </div>
+</body>	
+</html>
