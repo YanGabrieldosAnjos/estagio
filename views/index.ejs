@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Bem vindo ao <%= title %></p>
+    <form name="cad" data-toggle="validator" action="/menucad" method="post">
+      <input class="btn btn-outline-primary btn-lg active justify-content-center" role="button" aria-pressed="true"  type="submit" >cadastrar</a>
+    </form>
+    <form name="monstrar" data-toggle="validator" action="/menumostrar" method="post">
+      <input class="btn btn-outline-primary btn-lg active justify-content-center" role="button" aria-pressed="true"  type="submit" >mostrar</a>
+    </form>
+  </body>
+</html>
